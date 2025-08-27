@@ -11,7 +11,7 @@ async function renderSchedule() {
 		const template = handlebars.compile(templateHtml);
 		const renderedHtml = template(data);
 
-		const browser = await puppeteer.launch({headless: false});
+		const browser = await puppeteer.launch();
 		const page = await browser.newPage();
 
 		await page.setContent(renderedHtml, {waitUntil: 'networkidle0'});
@@ -42,19 +42,13 @@ async function renderSchedule() {
 			await page.screenshot({
 				path: fileName,
 				fullPage: true,
-				// clip: {
-				// 	x: scheduleBounds.x,
-				// 	y: scheduleBounds.y,
-				// 	width: scheduleBounds.width,
-				// 	height: scheduleBounds.height,
-				// }
 			});
 			console.log('Page rendered successfully');
 		} else {
 			console.log("Can't find schedule element");
 		}
 
-		// await browser.close();
+		await browser.close();
 
 	} catch (error) {
 		console.error("Render error:", error);
