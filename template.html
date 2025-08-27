@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Template</title>
+	<style>
+		body { font-family: "Montserrat", serif; padding: 40px; display: grid; grid-template-columns: repeat(2, 1fr); }
+	</style>
+</head>
+<body>
+	<div id="schedule">
+		{{#each this}}
+		<div class="day-schedule">
+			<h1>{{dayOfWeek}}</h1>
+			{{#if classes}}
+				<table class="schedule-table">
+					<tbody>
+						{{#each classes}}
+						<tr>
+							<td>{{number}}</td>
+							<td>{{subject}}</td>
+							<td>{{room}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			{{else}}
+				<!-- Empty day-->
+			{{/if}}
+		</div>
+		{{/each}}
+	</div>
+</body>
+</html>
