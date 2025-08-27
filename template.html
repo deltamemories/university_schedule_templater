@@ -62,7 +62,7 @@
 		.schedule-table {display: flex; flex-direction: column; gap: 14px}
 		.schedule-row {display: flex; flex-direction: row; align-items: center; justify-content: left; gap: 12px; padding-left: 6px}
 		p {font-size: 18px; color: #4d4d4d}
-		.number {font-size: 20px}
+		.number {font-size: 20px; text-align: center; min-width: 16px}
 	</style>
 </head>
 <body>
@@ -74,9 +74,14 @@
 				<div class="schedule-table">
 						{{#each classes}}
 						<div class="schedule-row">
+							{{#if subject}}
 							<p class="number">{{number}}</p>
 							<p>{{subject}}</p>
 							<p>{{room}}</p>
+							{{else}}
+							<p class="number">{{number}}</p>
+							<div style="width: 1px; height: 24px; background: #ccc"></div>
+							{{/if}}
 						</div>
 						{{/each}}
 				</div>
