@@ -29,8 +29,8 @@ create data.json in repo root with the following content:
 >*dayOfWeek:* string of Day of the week  
 >*number:* index number  
 >*subject:* Name of academic discipline  
->*room:* auditory name or number  
+>*room:* audience name or number  
 
 ## Step 2:
-Run ```npm start```
+Run ```npm start```  
 If render ends successfully your rendered schedule will be in `./rendered/` folder
