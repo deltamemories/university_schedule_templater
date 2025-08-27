@@ -28,14 +28,26 @@ async function renderSchedule() {
 		})
 
 		if (scheduleBounds) {
+			const now = new Date();
+			const dateString = `${(now.getHours() + 1).toString().padStart(2, '0')}_${(now.getMinutes() + 1).toString().padStart(2, '0')}_${(now.getSeconds() + 1).toString().padStart(2, '0')}_${now.getDate().toString().padStart(2, '0')}_${(now.getMonth() + 1).toString().padStart(2, '0')}_${now.getFullYear()}`;
+			const fileName = `./rendered/schedule_${dateString}.png`;
+
+
+			await page.setViewport({
+				width: Math.ceil(scheduleBounds.width),
+				height: Math.ceil(scheduleBounds.height),
+				deviceScaleFactor: 4,
+			})
+
 			await page.screenshot({
-				path: './rendered/schedule.png',
-				clip: {
-					x: scheduleBounds.x,
-					y: scheduleBounds.y,
-					width: scheduleBounds.width,
-					height: scheduleBounds.height,
-				}
+				path: fileName,
+				fullPage: true,
+				// clip: {
+				// 	x: scheduleBounds.x,
+				// 	y: scheduleBounds.y,
+				// 	width: scheduleBounds.width,
+				// 	height: scheduleBounds.height,
+				// }
 			});
 			console.log('Page rendered successfully');
 		} else {

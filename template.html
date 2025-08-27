@@ -4,14 +4,18 @@
 	<meta charset="UTF-8">
 	<title>Template</title>
 	<style>
-		body { font-family: "Montserrat", serif; padding: 40px; display: grid; grid-template-columns: repeat(2, 1fr); }
+		body { font-family: "Montserrat", serif; padding: 0; margin: 0; white-space: nowrap;}
+		.day-name {font-size: 24px; font-weight: 400; color: #1a1a1a
+	 }
+		td {font-size: 16px; color: #4d4d4d;}
+		#schedule {padding: 40px; display: grid; grid-template-columns: repeat(2, 1fr);}
 	</style>
 </head>
 <body>
 	<div id="schedule">
 		{{#each this}}
 		<div class="day-schedule">
-			<h1>{{dayOfWeek}}</h1>
+			<p class="day-name">{{dayOfWeek}}</p>
 			{{#if classes}}
 				<table class="schedule-table">
 					<tbody>
