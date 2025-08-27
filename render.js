@@ -39,6 +39,14 @@ async function renderSchedule() {
 				deviceScaleFactor: 4,
 			})
 
+			try {
+				await fs.mkdir('./rendered')
+			} catch (err) {
+				if (err.code !== 'EEXIST') {
+					return Promise.reject(err);
+				}
+			}
+
 			await page.screenshot({
 				path: fileName,
 				fullPage: true,

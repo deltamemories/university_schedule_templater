@@ -33,3 +33,4 @@ create data.json in repo root with the following content:
 
 ## Step 2:
 Run ```npm start```
+If render ends successfully your rendered schedule will be in `./rendered/` folder
