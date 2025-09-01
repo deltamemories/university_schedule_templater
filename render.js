@@ -36,7 +36,7 @@ async function renderSchedule() {
 			await page.setViewport({
 				width: Math.ceil(scheduleBounds.width),
 				height: Math.ceil(scheduleBounds.height),
-				deviceScaleFactor: 4,
+				deviceScaleFactor: 3,
 			})
 
 			try {
