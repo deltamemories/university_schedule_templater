@@ -57,19 +57,20 @@
 	<style>
 		body { font-family: "Montserrat", serif; padding: 0; margin: 0; white-space: nowrap; width: fit-content}
 	 	#schedule {padding: 40px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;}
-		.day-schedule {display: flex; gap: 22px; flex-direction: column; padding: 30px}
-		.day-name {font-size: 22px; font-weight: 400; color: #080808}
+		.day-schedule, .time {display: flex; gap: 22px; flex-direction: column; padding: 30px}
+		.title {font-size: 22px; font-weight: 400; color: #080808}
 		.schedule-table {display: flex; flex-direction: column; gap: 14px}
 		.schedule-row {display: flex; flex-direction: row; align-items: center; justify-content: left; gap: 12px; padding-left: 6px}
 		p {font-size: 18px; color: #4d4d4d}
 		.number {font-size: 20px; text-align: center; min-width: 16px}
 	</style>
 </head>
+
 <body>
 	<div id="schedule">
-		{{#each this}}
+		{{#each schedule}}
 		<div class="day-schedule">
-			<p class="day-name">{{dayOfWeek}}</p>
+			<p class="title">{{dayOfWeek}}</p>
 			{{#if classes}}
 				<div class="schedule-table">
 						{{#each classes}}
@@ -90,6 +91,20 @@
 			{{/if}}
 		</div>
 		{{/each}}
+
+		{{#if time}}
+			<div class="time">
+				<p class="title">{{time.title}}</p>
+				<div class="schedule-table">
+					{{#each time.list}}
+						<div class="schedule-row">
+							<p class="number">{{number}}</p>
+							<p>{{info}}</p>
+						</div>
+					{{/each}}
+				</div>
+			</div>
+		{{/if}}
 	</div>
 </body>
 </html>

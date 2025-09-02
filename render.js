@@ -11,7 +11,7 @@ async function renderSchedule() {
 		const template = handlebars.compile(templateHtml);
 		const renderedHtml = template(data);
 
-		const browser = await puppeteer.launch();
+		const browser = await puppeteer.launch({headless: false});
 		const page = await browser.newPage();
 
 		await page.setContent(renderedHtml, {waitUntil: 'networkidle0'});
@@ -56,7 +56,7 @@ async function renderSchedule() {
 			console.log("Can't find schedule element");
 		}
 
-		await browser.close();
+		// await browser.close();
 
 	} catch (error) {
 		console.error("Render error:", error);
