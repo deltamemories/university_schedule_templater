@@ -7,6 +7,7 @@ async function renderSchedule() {
 	try {
 		const templateHtml = await fs.readFile('./template.html', 'utf8');
 		const data = JSON.parse(await fs.readFile('./data.json', 'utf8'));
+		const scale_factor = data['scale_factor'];
 
 		const template = handlebars.compile(templateHtml);
 		const renderedHtml = template(data);
@@ -36,7 +37,7 @@ async function renderSchedule() {
 			await page.setViewport({
 				width: Math.ceil(scheduleBounds.width),
 				height: Math.ceil(scheduleBounds.height),
-				deviceScaleFactor: 3,
+				deviceScaleFactor: scale_factor,
 			})
 
 			try {
