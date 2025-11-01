@@ -42,7 +42,6 @@ create data.json in repo root with the following content:
 
 ```
 
->*Note:* You can add many days of the week – put another days in json's root list  
 
 >*dayOfWeek:* string of Day of the week  
 >*number:* index number  
