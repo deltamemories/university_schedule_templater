@@ -1,5 +1,3 @@
-
-
 # Installation:
 Run ```npm install```
 
@@ -36,6 +34,6 @@ Run ```npm start```
 If render ends successfully your rendered schedule will be in `./rendered/` folder
 
 # TODO:
-1. Add time support
-2. Add changing scale factor
-3. Add link on Google fonts for font in head
+1. - [ ] Add time support
+2. - [x] Add changing scale factor
+3. - [ ] Add link on Google fonts for font in head
