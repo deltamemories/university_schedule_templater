@@ -37,7 +37,8 @@ create data.json in repo root with the following content:
 		]
 	},
 
-	"scale_factor": 3
+	"scale_factor": 3,
+	"theme": "oled"
 }
 
 ```
@@ -48,6 +49,7 @@ create data.json in repo root with the following content:
 >*subject:* Name of academic discipline  
 >*room:* audience name or number  
 >*scale_factor:* Factor for scale output image  
+>*theme:* Theme for render (light, dark or oled)
 
 ## Step 2:
 Run ```npm start```  
