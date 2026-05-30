@@ -58,18 +58,92 @@
 	</style>
 
 	<style>
-		body { font-family: "Montserrat", serif; padding: 0; margin: 0; white-space: nowrap; width: fit-content; background-color: #fff}
-	 	#schedule {padding: 40px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;}
-		.day-schedule, .time {display: flex; gap: 22px; flex-direction: column; padding: 30px}
-		.title {font-size: 22px; font-weight: 400; color: #080808}
-		.schedule-table {display: flex; flex-direction: column; gap: 14px}
-		.schedule-row {display: flex; flex-direction: row; align-items: center; justify-content: left; gap: 12px; padding-left: 6px}
-		p {font-size: 18px; color: #4d4d4d}
-		.number {font-size: 20px; text-align: center; min-width: 16px}
+		:root {
+			--title-color: #080808;
+			--text-color: #4d4d4d;
+			--background-color: #fff;
+			--divider-color: #ccc;
+		}
+
+		body.dark {
+			--title-color: #f7f7f7;
+			--text-color: #b3b3b3;
+			--background-color: #1a1a1a;
+			--divider-color: #3f3f3f;
+		}
+
+		body.oled {
+			--title-color: #f7f7f7;
+			--text-color: #b3b3b3;
+			--background-color: #000;
+			--divider-color: #3f3f3f;
+		}
+
+
+		body {
+			font-family: "Montserrat", serif;
+			padding: 0;
+			margin: 0;
+			white-space: nowrap;
+			width: fit-content;
+			background-color: var(--background-color);
+		}
+
+		#schedule {
+			padding: 40px;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
+		}
+
+		.day-schedule, .time {
+			display: flex;
+			gap: 22px;
+			flex-direction: column;
+			padding: 30px
+		}
+
+		.title {
+			font-size: 22px;
+			font-weight: 400;
+			color: var(--title-color) !important;
+		}
+
+		.schedule-table {
+			display: flex;
+			flex-direction: column;
+			gap: 14px
+		}
+
+		.schedule-row {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: left;
+			gap: 12px;
+			padding-left: 6px
+		}
+
+		p {
+			font-size: 18px;
+			color: var(--text-color)
+		}
+
+		.number {
+			font-size: 20px;
+			text-align: center;
+			min-width: 16px
+		}
+
+		.divider {
+			width: 1px;
+			height: 24px;
+			background: var(--divider-color)
+		}
 	</style>
 </head>
 
-<body>
+<body class="{{theme}}">
 	<div id="schedule">
 		{{#each schedule}}
 		<div class="day-schedule">
@@ -84,7 +158,7 @@
 							<p>{{room}}</p>
 							{{else}}
 							<p class="number">{{number}}</p>
-							<div style="width: 1px; height: 24px; background: #ccc"></div>
+							<div class="divider"></div>
 							{{/if}}
 						</div>
 						{{/each}}
